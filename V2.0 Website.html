@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biaan Van Sittert - Cyber Security Practitioner</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Link to favicon -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 4em;
+            color: #fff;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        section {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .profile-picture {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-picture img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .about-me {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .about-text {
+            font-size: 1.2em;
+            margin-top: 20px;
+            max-width: 80%;
+            margin: 0 auto;
+            padding-top: 15px;
+            position: relative;
+            display: inline-block;
+            white-space: pre-wrap;
+        }
+
+        .screen {
+            display: block;
+            margin: 0 auto;
+            width: 80%; /* Full width for better coverage */
+            position: relative;
+        }
+
+        .typewriter {
+            white-space: pre-wrap;
+            background-color: rgba(255, 255, 255, 0);
+            padding: 10px;
+            display: inline-block;
+            position: absolute;
+            top: 14%;
+            left: 27%;
+            width: 44%; /* Adjusted to fit inside the screen image */
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-info .contact-item {
+            display: inline-block;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .contact-info img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .contact-info p {
+            margin-top: 10px;
+        }
+
+.slide-in {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 200px; /* Adjust size as needed */
+    height: auto;
+    margin-left: 20px;
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.slide-in.show {
+    transform: translateX(0); /* Slide into view */
+}
+
+.certifications {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.certifications h2 {
+    margin-bottom: 20px;
+}
+
+.folder-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align folders to the left */
+    position: relative;
+}
+
+.folder {
+    position: relative;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.folder img {
+    display: block;
+    width: 120px; /* Adjust size as needed */
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure to adjust the dimensions as necessary */
+.open-certification {
+    display: none; /* Hide the larger certification image by default */
+    position: fixed; /* Fixed positioning for sliding effect */
+    right: 0; /* Align to the right side */
+    top: 800px; /* Adjust vertical position */
+    width: 600px; /* Adjust size as needed */
+    height: auto;
+    transition: transform 0.5s ease-in-out; /* Transition for sliding */
+    transform: translateX(100%); /* Start off-screen to the right */
+}
+
+        .skills {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .skills h2 {
+            margin-bottom: 20px;
+        }
+
+        .skills .panel-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .panel {
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 20%;
+            transition: transform 0.3s ease;
+        }
+
+        .panel:hover {
+            transform: scale(1.05);
+        }
+
+	.job-types {
+	    text-align: center;
+	    margin-bottom: 50px;
+	}
+
+	.job-types h2 {
+	    margin-bottom: 20px;
+	}
+
+	.job-types .job-list {
+	    list-style: none;
+	    padding: 0;
+	}
+
+	.job-types .job-list li {
+	    background-color: #f0f0f0;
+	    padding: 10px;
+	    margin: 10px;
+	    border-radius: 8px;
+	    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	    display: inline-block;
+	    width: 45%;
+	    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition */
+	}
+
+	.job-types .job-list li:hover {
+	    transform: scale(1.05); /* Slight zoom effect */
+	    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+	}
+
+
+	.fade-in-up {
+	    opacity: 0;
+	    transform: translateY(50px);
+	    transition: opacity 1s ease-out, transform 1s ease-out;
+	}
+	
+	.fade-in {
+	    opacity: 1;
+	    transform: translateY(0);
+	}
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Biaan Van Sittert</h1>
+        <p>Cyber Security Practitioner</p>
+	<div class="profile-picture">
+            <img src="20230618_225135.jpg" alt="Profile Picture">
+        </div>
+    </header>
+
+    <section class="fade-in-up">
+        <div class="about-me">
+            <h2>About Me</h2>
+            <img src="screen.png" alt="Computer Screen" class="screen">
+            <div id="about-text" class="typewriter"></div>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+		<a href="https://www.linkedin.com/in/biaan-van-sittert-45a9302bb/" target="_blank" title="LinkedIn Profile">
+                    <img src="linkedin-logo.png" alt="LinkedIn Logo">
+		</a>
+                <p>Connect with me on LinkedIn</p>
+            </div>
+            <div class="contact-item">
+                <img src="Email.png" alt="Email Icon">
+                <p>Email me at: <a href="mailto:BiaanBusiness@gmail.com">BiaanBusiness@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <img src="phone.png" alt="Phone Icon">
+                <p>Call me at: <a href="tel:+27844503697">084 450 3697</a></p>
+            </div>
+        </div>
+
+<div class="certifications">
+    <h2>Certifications</h2>
+    <div class="folder-container">
+        <div class="folder" data-folder-type="A" data-cert-image="AOpen.png">
+            <img src="folderA.png" alt="Folder A+">
+        </div>
+        <div class="folder" data-folder-type="N" data-cert-image="NOpen.png">
+            <img src="folderN.png" alt="Folder Network+">
+        </div>
+        <div class="folder" data-folder-type="S" data-cert-image="SOpen.png">
+            <img src="folderS.png" alt="Folder Security+">
+        </div>
+    </div>
+    <img id="open-certification" class="open-certification" src="" alt="Open Certification">
+</div>
+
+        <div class="skills fade-in-up">
+            <h2>Skills</h2>
+            <div class="panel-container">
+                <div class="panel">Linux Operating Systems</div>
+                <div class="panel">Linux Administration</div>
+                <div class="panel">Wireless Network and Security</div>
+                <div class="panel">Cyber Security Analysis</div>
+                <div class="panel">Problem-Solving</div>
+                <div class="panel">Communication</div>
+                <div class="panel">Determination</div>
+                <div class="panel">Open-Mindedness</div>
+            </div>
+        </div>
+
+	<div class="job-types">
+	    <h2>Job Opportunities</h2>
+	    <p>With my certifications and skills, I am well-suited for various roles in the IT and cyber security industry, including:</p>
+	    <ul class="job-list">
+	        <li class="job-opportunities-item">Cyber Security Analyst</li>
+	        <li class="job-opportunities-item">Network Security</li>
+	        <li class="job-opportunities-item">Penetration Tester</li>
+	        <li class="job-opportunities-item">IT Security Consultant</li>
+	        <li class="job-opportunities-item">System Administrator</li>
+	        <li class="job-opportunities-item">IT Support</li>
+	    </ul>
+	</div>
+
+    </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Typewriter Effect for About Me Text
+    const text = "Hello! I'm Biaan Van Sittert, a dedicated and driven professional in the field of cyber security. I hold multiple CompTIA certifications and have a solid foundation in various aspects of IT and network security. I am passionate about leveraging my skills to help organizations safeguard their digital assets and improve their security posture.";
+    let index = 0;
+    const speed = 40;
+    const typewriter = document.getElementById('about-text');
+
+    function typeWriterEffect() {
+        if (index < text.length) {
+            typewriter.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeWriterEffect, speed);
+        }
+    }
+
+    // Delay before starting the typewriter effect
+    setTimeout(typeWriterEffect, 1000); // 1000 milliseconds = 1 second
+
+    // Intersection Observer for Fade-in Animation
+    const sections = document.querySelectorAll('.fade-in-up');
+    const options = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            } else {
+                entry.target.classList.remove('fade-in');
+            }
+        });
+    }, options);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Certification Folder Interaction
+    const folders = document.querySelectorAll('.folder');
+    const openCertImage = document.getElementById('open-certification');
+
+    folders.forEach(folder => {
+        folder.addEventListener('click', function () {
+            // Get the data attribute to determine which image to show
+            const certImageSrc = this.getAttribute('data-cert-image');
+
+            // Reset all folders to the original state
+            folders.forEach(f => {
+                if (f !== this) {
+                    const folderType = f.getAttribute('data-folder-type');
+                    f.querySelector('img').src = `folder${folderType}.png`;
+                }
+            });
+
+            // Change the clicked folder image to folder.png
+            this.querySelector('img').src = 'folder.png';
+
+            // Update the source of the open certification image
+            openCertImage.src = certImageSrc;
+
+            // Show and animate the certification image
+            openCertImage.style.display = 'block';
+            setTimeout(() => {
+                openCertImage.style.transform = 'translateX(0)'; // Slide in from the left
+            }, 10); // Short delay to trigger the transition
+
+            // Enlarge the clicked folder
+            this.style.transform = 'scale(1.1)'; // Slightly enlarge the clicked folder
+        });
+    });
+
+    // Optional: Add a close button to hide the certification image
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'Close';
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '840px';
+    closeButton.style.right = '100px';
+    closeButton.style.background = 'rgba(0,0,0,0.5)';
+    closeButton.style.color = '#fff';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.padding = '5px 10px';
+    openCertImage.parentElement.appendChild(closeButton);
+
+    closeButton.addEventListener('click', function () {
+        openCertImage.style.transform = 'translateX(100%)'; // Slide out to the right
+        setTimeout(() => {
+            openCertImage.style.display = 'none'; // Hide after animation
+        }, 500); // Match duration of slide-out animation
+    });
+});
+
+</script>
+
+</body>
+
+</html>
