@@ -41,8 +41,9 @@
 
         h2 {
             color: #333;
+	    padding: 20px;
             margin-bottom: 10px;
-        }
+        }	
 
         a {
             color: #ffcc00;
@@ -72,32 +73,74 @@
 
         .about-text {
             font-size: 1.2em;
-            margin-top: 20px;
+            margin-top: 1px;
             max-width: 80%;
             margin: 0 auto;
-            padding-top: 15px;
+            padding-top: 1px;
             position: relative;
             display: inline-block;
             white-space: pre-wrap;
         }
 
-        .screen {
-            display: block;
-            margin: 0 auto;
-            width: 80%; /* Full width for better coverage */
-            position: relative;
-        }
+.typewriter-container {
+    display: inline-block;
+    background-color: #000000; /* Terminal background color */
+    border-radius: 8px;
+    padding: 20px; /* Padding around the text inside the terminal */
+    margin: 0 auto;
+    width: auto;
+    height: auto;
+    min-width: 50px;
+    min-height: 20px;
+    max-width: 80%; /* Limit the container width to 80% of the screen */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Similar shadow to the skills/job areas */
+    transition: width 0.1s ease-out, height 0.1s ease-out;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    position: relative; /* To position the dots */
+}
 
-        .typewriter {
-            white-space: pre-wrap;
-            background-color: rgba(255, 255, 255, 0);
-            padding: 10px;
-            display: inline-block;
-            position: absolute;
-            top: 14%;
-            left: 27%;
-            width: 44%; /* Adjusted to fit inside the screen image */
-        }
+.typewriter {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    width: 100%;
+    overflow-wrap: break-word; /* Ensure long words wrap to the next line */
+    font-size: 1.2em; /* Adjust font size for readability */
+    color: #ffffff; /* Text color changed to white */
+    margin-top: -70px; /* Space between the terminal bar and text */
+}
+
+.terminal-bar {
+    background-color: #333; /* Terminal bar color (black) */
+    height: 25px;
+    border-radius: 8px 8px 0 0; /* Rounded corners at the top */
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.terminal-bar .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.dot.red {
+    background-color: #FF605C;
+}
+
+.dot.orange {
+    background-color: #FFBD44;
+}
+
+.dot.green {
+    background-color: #00CA4E;
+}
 
         .contact-info {
             text-align: center;
@@ -119,61 +162,20 @@
             margin-top: 10px;
         }
 
-.slide-in {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 200px; /* Adjust size as needed */
-    height: auto;
-    margin-left: 20px;
-    transform: translateX(100%); /* Start off-screen */
-    transition: transform 0.5s ease; /* Smooth transition */
-}
-
-.slide-in.show {
-    transform: translateX(0); /* Slide into view */
-}
-
-.certifications {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.certifications h2 {
-    margin-bottom: 20px;
-}
-
-.folder-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align folders to the left */
-    position: relative;
-}
-
-.folder {
-    position: relative;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.folder img {
-    display: block;
-    width: 120px; /* Adjust size as needed */
-    transition: opacity 0.3s ease;
-}
-
-/* Ensure to adjust the dimensions as necessary */
-.open-certification {
-    display: none; /* Hide the larger certification image by default */
-    position: fixed; /* Fixed positioning for sliding effect */
-    right: 0; /* Align to the right side */
-    top: 800px; /* Adjust vertical position */
-    width: 600px; /* Adjust size as needed */
-    height: auto;
-    transition: transform 0.5s ease-in-out; /* Transition for sliding */
-    transform: translateX(100%); /* Start off-screen to the right */
-}
+	.slide-in {
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	    width: 200px; /* Adjust size as needed */
+	    height: auto;
+	    margin-left: 20px;
+	    transform: translateX(100%); /* Start off-screen */
+	    transition: transform 0.9s ease; /* Smooth transition */
+	}
+	
+	.slide-in.show {
+	    transform: translateX(0); /* Slide into view */
+	}
 
         .skills {
             text-align: center;
@@ -190,19 +192,27 @@
             justify-content: space-around;
         }
 
-        .panel {
-            background-color: #f0f0f0;
-            padding: 20px;
-            margin: 10px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 20%;
-            transition: transform 0.3s ease;
-        }
+	.panel-container {
+	    display: flex;
+	    flex-wrap: wrap;
+	    justify-content: center; /* Center-align the panels */
+	    gap: 0px; /* Add space between panels */
+	}
 
-        .panel:hover {
-            transform: scale(1.05);
-        }
+	.panel {
+	    background-color: #f0f0f0;
+	    padding: 20px;
+	    margin: 10px;
+	    border-radius: 8px;
+	    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	    width: 20%; /* Limit to 4 items per row */
+	    min-width: 200px; /* Ensures the panels have a minimum size */
+	    transition: transform 0.3s ease;
+	}
+
+	.panel:hover {
+	    transform: scale(1.05);
+	}
 
 	.job-types {
 	    text-align: center;
@@ -238,7 +248,7 @@
 	.fade-in-up {
 	    opacity: 0;
 	    transform: translateY(50px);
-	    transition: opacity 1s ease-out, transform 1s ease-out;
+	    transition: opacity 1s ease-out 0.8s, transform 1s ease-out;
 	}
 	
 	.fade-in {
@@ -257,17 +267,26 @@
         </div>
     </header>
 
-    <section class="fade-in-up">
-        <div class="about-me">
-            <h2>About Me</h2>
-            <img src="screen.png" alt="Computer Screen" class="screen">
+<section class="fade-in-up">
+    <div class="about-me">
+        <h2>About Me</h2>
+        <div class="typewriter-container">
+            <!-- MacOS Terminal Bar -->
+            <div class="terminal-bar">
+                <span class="dot red"></span>
+                <span class="dot orange"></span>
+                <span class="dot green"></span>
+            </div>
+            <!-- Text Area -->
             <div id="about-text" class="typewriter"></div>
         </div>
+    </div>
 
         <div class="contact-info">
+	    <h2>Contact me</h2>
             <div class="contact-item">
 		<a href="https://www.linkedin.com/in/biaan-van-sittert-45a9302bb/" target="_blank" title="LinkedIn Profile">
-                    <img src="linkedin-logo.png" alt="LinkedIn Logo">
+                   <img src="linkedin-logo.png" alt="LinkedIn Logo">
 		</a>
                 <p>Connect with me on LinkedIn</p>
             </div>
@@ -281,21 +300,20 @@
             </div>
         </div>
 
-<div class="certifications">
-    <h2>Certifications</h2>
-    <div class="folder-container">
-        <div class="folder" data-folder-type="A" data-cert-image="AOpen.png">
-            <img src="folderA.png" alt="Folder A+">
-        </div>
-        <div class="folder" data-folder-type="N" data-cert-image="NOpen.png">
-            <img src="folderN.png" alt="Folder Network+">
-        </div>
-        <div class="folder" data-folder-type="S" data-cert-image="SOpen.png">
-            <img src="folderS.png" alt="Folder Security+">
-        </div>
-    </div>
-    <img id="open-certification" class="open-certification" src="" alt="Open Certification">
-</div>
+	<div class="certifications fade-in-up">
+	    <h2>Certifications</h2>
+	    <div class="panel-container">
+	        <div class="panel">CompTIA A+</div>
+	        <div class="panel">CompTIA Network+</div>
+	        <div class="panel">CompTIA Security+</div>
+	        <div class="panel">CompTIA CySA+</div>
+	        <div class="panel">CompTIA PenTest+</div>
+	        <div class="panel">CompTIA CASP+</div>
+	        <div class="panel">EDUVOS Higher Certificate in Cyber Security</div>
+	        <div class="panel">CPUT Cyber Security Certification</div>
+	        <div class="panel">TryHackMe: Introduction to Cyber Security</div>
+	    </div>
+	</div>
 
         <div class="skills fade-in-up">
             <h2>Skills</h2>
@@ -311,7 +329,7 @@
             </div>
         </div>
 
-	<div class="job-types">
+	<div class="job-types fade-in-up">
 	    <h2>Job Opportunities</h2>
 	    <p>With my certifications and skills, I am well-suited for various roles in the IT and cyber security industry, including:</p>
 	    <ul class="job-list">
@@ -328,21 +346,25 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Typewriter Effect for About Me Text
     const text = "Hello! I'm Biaan Van Sittert, a dedicated and driven professional in the field of cyber security. I hold multiple CompTIA certifications and have a solid foundation in various aspects of IT and network security. I am passionate about leveraging my skills to help organizations safeguard their digital assets and improve their security posture.";
     let index = 0;
-    const speed = 40;
+    const speed = 35;
     const typewriter = document.getElementById('about-text');
+    const typewriterContainer = document.querySelector('.typewriter-container');
 
     function typeWriterEffect() {
         if (index < text.length) {
             typewriter.textContent += text.charAt(index);
             index++;
+
+            // Adjust height only, allowing text to wrap naturally
+            typewriterContainer.style.height = `${typewriter.scrollHeight + 20}px`;
+
             setTimeout(typeWriterEffect, speed);
         }
     }
 
-    // Delay before starting the typewriter effect
+    // Start the typewriter effect after a brief delay
     setTimeout(typeWriterEffect, 1000); // 1000 milliseconds = 1 second
 
     // Intersection Observer for Fade-in Animation
