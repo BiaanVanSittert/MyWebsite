@@ -499,16 +499,23 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const text = "Hello! I'm Biaan Van Sittert, a dedicated and driven professional in the field of cyber security. I hold multiple CompTIA certifications and have a solid foundation in various aspects of IT and network security. I am passionate about leveraging my skills to help organizations safeguard their digital assets and improve their security posture.";
+    const text = "Hello! I'm Biaan Van Sittert, an aspiring IT and Cyber Security Practitioner from Cape Town, South Africa. With a strong foundation in information systems and cybersecurity, I've earned certifications including CompTIA A+, Security+, and more. I hold a Higher Certificate in Information Systems (Cyber Security) from EDUVOS and a Cyber Security certification from CPUT.<br><br>My passion for technology drives me to constantly explore and learn new things. I've gained hands-on experience in Linux Administration, wireless network security, and various cybersecurity tools. My recent projects include working with OWASP to understand and mitigate web application vulnerabilities, as well as using Kali Linux and Metasploit for penetration testing.<br><br>Fluent in both English and Afrikaans, I pride myself on being a curious and determined individual, always eager to tackle new challenges. When I'm not immersed in technology, you can find me enjoying music, arts and crafts, or honing my shooting skills.";
+    
     let index = 0;
-    const speed = 35;
+    const speed = 42;
     const typewriter = document.getElementById('about-text');
     const typewriterContainer = document.querySelector('.typewriter-container');
 
     function typeWriterEffect() {
         if (index < text.length) {
-            typewriter.textContent += text.charAt(index);
-            index++;
+            // Extract a single character or the next <br> tag
+            if (text.slice(index, index + 4) === "<br>") {
+                typewriter.innerHTML += "<br>";
+                index += 4; // Skip over the <br> tag
+            } else {
+                typewriter.innerHTML += text.charAt(index);
+                index++;
+            }
 
             // Adjust height only, allowing text to wrap naturally
             typewriterContainer.style.height = `${typewriter.scrollHeight + 20}px`;
@@ -574,27 +581,8 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.transform = 'scale(1.1)'; // Slightly enlarge the clicked folder
         });
     });
-
-    // Optional: Add a close button to hide the certification image
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.style.position = 'absolute';
-    closeButton.style.top = '840px';
-    closeButton.style.right = '100px';
-    closeButton.style.background = 'rgba(0,0,0,0.5)';
-    closeButton.style.color = '#fff';
-    closeButton.style.border = 'none';
-    closeButton.style.borderRadius = '5px';
-    closeButton.style.padding = '5px 10px';
-    openCertImage.parentElement.appendChild(closeButton);
-
-    closeButton.addEventListener('click', function () {
-        openCertImage.style.transform = 'translateX(100%)'; // Slide out to the right
-        setTimeout(() => {
-            openCertImage.style.display = 'none'; // Hide after animation
-        }, 500); // Match duration of slide-out animation
-    });
 });
+
 
 </script>
 
